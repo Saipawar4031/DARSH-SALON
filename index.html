@@ -65,7 +65,6 @@
   .service-icon { font-size: 2rem; margin-bottom: 1rem; }
   .service-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--warm-white); margin-bottom: 0.4rem; }
   .service-duration { font-size: 0.65rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.6rem; }
-  .service-price { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold-light); }
   .service-desc { font-size: 0.72rem; color: var(--muted); line-height: 1.7; margin-top: 0.6rem; }
   #booking { background: var(--dark2); border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 6rem 2rem; }
   .booking-inner { max-width: 800px; margin: 0 auto; }
@@ -83,6 +82,8 @@
   .slot-btn:hover:not(.booked):not(.past) { border-color: var(--gold); color: var(--gold); }
   .slot-btn.selected { background: var(--gold); color: var(--dark); border-color: var(--gold); font-weight: 600; }
   .slot-btn.booked { background: rgba(192,57,43,0.1); border-color: rgba(192,57,43,0.3); color: rgba(192,57,43,0.55); cursor: not-allowed; }
+  .slot-btn.booked.admin-unbook { cursor: pointer; border-color: rgba(201,168,76,0.5); }
+  .slot-btn.booked.admin-unbook:hover { background: rgba(201,168,76,0.15); border-color: var(--gold); color: var(--gold); }
   .slot-btn.booked .slot-status { display: block; font-size: 0.55rem; letter-spacing: 0.1em; color: rgba(192,57,43,0.65); }
   .slot-btn.past { opacity: 0.2; cursor: not-allowed; text-decoration: line-through; }
   .booking-summary { background: var(--dark); border: 1px solid rgba(201,168,76,0.3); padding: 1.5rem; margin: 1.5rem 0; display: none; }
@@ -111,7 +112,7 @@
   .footer-addr a { color: var(--gold); text-decoration: none; }
   .footer-divider { width: 60px; height: 1px; background: var(--gold-dim); margin: 1.5rem auto; }
   .footer-copy { font-size: 0.65rem; color: #3a3020; letter-spacing: 0.15em; }
-  .admin-fab { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200; background: var(--dark3); border: 1px solid var(--gold-dim); color: var(--muted); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.65rem 1.3rem; cursor: pointer; transition: all 0.25s; font-family: 'Montserrat', sans-serif; }
+  .admin-fab { display: none; position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200; background: var(--dark3); border: 1px solid var(--gold-dim); color: var(--muted); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.65rem 1.3rem; cursor: pointer; transition: all 0.25s; font-family: 'Montserrat', sans-serif; }
   .admin-fab:hover { border-color: var(--gold); color: var(--gold); }
   .admin-overlay { display: none; position: fixed; inset: 0; background: rgba(10,8,6,0.99); z-index: 600; overflow-y: auto; padding: 2rem; }
   .admin-overlay.show { display: block; }
@@ -120,7 +121,7 @@
   .admin-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold); }
   .admin-close { background: none; border: 1px solid var(--gold-dim); color: var(--muted); padding: 0.4rem 1rem; cursor: pointer; font-size: 0.7rem; letter-spacing: 0.15em; transition: all 0.2s; font-family: 'Montserrat', sans-serif; }
   .admin-close:hover { border-color: var(--gold); color: var(--gold); }
-  .admin-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 2rem; }
+  .admin-stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; margin-bottom: 2rem; }
   .stat-card { background: var(--dark2); border: 1px solid var(--gold-dim); padding: 1.5rem; text-align: center; }
   .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); }
   .stat-lbl { font-size: 0.62rem; letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase; margin-top: 0.3rem; }
@@ -181,34 +182,34 @@
   <p class="section-label">✦ What We Offer ✦</p>
   <h2 class="section-title">Choose Your Treatment</h2>
   <div class="services-grid">
-    <div class="service-card" data-service="Haircut" data-price="₹200" data-duration="30 min" onclick="selectService(this)">
+    <div class="service-card" data-service="Haircut" data-duration="30 min" onclick="selectService(this)">
       <div class="service-icon">✂️</div><div class="service-name">Haircut</div>
-      <div class="service-duration">30 min</div><div class="service-price">₹200</div>
+      <div class="service-duration">30 min</div>
       <div class="service-desc">Classic precision cut tailored to your face shape and style.</div>
     </div>
-    <div class="service-card" data-service="Hair Colour" data-price="₹600" data-duration="60 min" onclick="selectService(this)">
+    <div class="service-card" data-service="Hair Colour" data-duration="60 min" onclick="selectService(this)">
       <div class="service-icon">🎨</div><div class="service-name">Hair Colour</div>
-      <div class="service-duration">60 min</div><div class="service-price">₹600</div>
+      <div class="service-duration">60 min</div>
       <div class="service-desc">Full colour, highlights, or balayage with premium products.</div>
     </div>
-    <div class="service-card" data-service="Hair Spa" data-price="₹500" data-duration="45 min" onclick="selectService(this)">
+    <div class="service-card" data-service="Hair Spa" data-duration="45 min" onclick="selectService(this)">
       <div class="service-icon">💆</div><div class="service-name">Hair Spa</div>
-      <div class="service-duration">45 min</div><div class="service-price">₹500</div>
+      <div class="service-duration">45 min</div>
       <div class="service-desc">Deep conditioning treatment for strength, shine & nourishment.</div>
     </div>
-    <div class="service-card" data-service="Smoothening" data-price="₹1500" data-duration="90 min" onclick="selectService(this)">
+    <div class="service-card" data-service="Smoothening" data-duration="90 min" onclick="selectService(this)">
       <div class="service-icon">🌊</div><div class="service-name">Smoothening</div>
-      <div class="service-duration">90 min</div><div class="service-price">₹1500</div>
+      <div class="service-duration">90 min</div>
       <div class="service-desc">Frizz-free, silky smooth treatment that lasts for months.</div>
     </div>
-    <div class="service-card" data-service="Keratin Treatment" data-price="₹2000" data-duration="120 min" onclick="selectService(this)">
+    <div class="service-card" data-service="Keratin Treatment" data-duration="120 min" onclick="selectService(this)">
       <div class="service-icon">✨</div><div class="service-name">Keratin</div>
-      <div class="service-duration">120 min</div><div class="service-price">₹2000</div>
+      <div class="service-duration">120 min</div>
       <div class="service-desc">Restore and strengthen your hair with a professional keratin infusion.</div>
     </div>
-    <div class="service-card" data-service="Shave & Trim" data-price="₹150" data-duration="20 min" onclick="selectService(this)">
-      <div class="service-icon">🪒</div><div class="service-name">Shave & Trim</div>
-      <div class="service-duration">20 min</div><div class="service-price">₹150</div>
+    <div class="service-card" data-service="Shave &amp; Trim" data-duration="20 min" onclick="selectService(this)">
+      <div class="service-icon">🪒</div><div class="service-name">Shave &amp; Trim</div>
+      <div class="service-duration">20 min</div>
       <div class="service-desc">Classic blade shave or beard trim, sharp and precise finish.</div>
     </div>
   </div>
@@ -231,12 +232,12 @@
         <label>Service *</label>
         <select id="serviceSelect" onchange="syncServiceFromSelect()">
           <option value="">— Select service —</option>
-          <option value="Haircut|₹200|30 min">Haircut — ₹200</option>
-          <option value="Hair Colour|₹600|60 min">Hair Colour — ₹600</option>
-          <option value="Hair Spa|₹500|45 min">Hair Spa — ₹500</option>
-          <option value="Smoothening|₹1500|90 min">Smoothening — ₹1500</option>
-          <option value="Keratin Treatment|₹2000|120 min">Keratin — ₹2000</option>
-          <option value="Shave & Trim|₹150|20 min">Shave & Trim — ₹150</option>
+          <option value="Haircut|30 min">Haircut</option>
+          <option value="Hair Colour|60 min">Hair Colour</option>
+          <option value="Hair Spa|45 min">Hair Spa</option>
+          <option value="Smoothening|90 min">Smoothening</option>
+          <option value="Keratin Treatment|120 min">Keratin Treatment</option>
+          <option value="Shave &amp; Trim|20 min">Shave &amp; Trim</option>
         </select>
       </div>
       <div class="form-group">
@@ -260,7 +261,6 @@
       <div class="summary-row"><span>Date</span><span id="sumDate">—</span></div>
       <div class="summary-row"><span>Time</span><span id="sumTime">—</span></div>
       <div class="summary-row"><span>Duration</span><span id="sumDuration">—</span></div>
-      <div class="summary-row"><span>Price</span><span id="sumPrice">—</span></div>
     </div>
     <button class="submit-btn" id="submitBtn" onclick="confirmBooking()" disabled>Confirm Reservation</button>
   </div>
@@ -304,7 +304,6 @@
     <div class="admin-stats">
       <div class="stat-card"><div class="stat-num" id="statTotal">0</div><div class="stat-lbl">Total Bookings</div></div>
       <div class="stat-card"><div class="stat-num" id="statToday">0</div><div class="stat-lbl">Today's Bookings</div></div>
-      <div class="stat-card"><div class="stat-num" id="statRevenue">₹0</div><div class="stat-lbl">Expected Revenue</div></div>
     </div>
     <div class="admin-filter">
       <input type="text" id="adminSearch" placeholder="Search name, phone, service…" oninput="renderAdmin()"/>
@@ -312,6 +311,7 @@
       <button class="admin-close" onclick="clearAdminFilter()">Clear</button>
       <button class="admin-close" onclick="clearAllBookings()" style="border-color:rgba(192,57,43,0.5);color:rgba(192,57,43,0.7)">🗑 Clear All</button>
     </div>
+    <div id="adminNotifyRow" style="margin-bottom:1rem"></div>
     <div class="bookings-list" id="bookingsList"></div>
   </div>
 </div>
@@ -346,6 +346,7 @@ function isSlotBooked(date, time) { return getBookings().some(b => b.date === da
 /* ─── STATE ─── */
 let sel_service = null;
 let sel_time    = null;
+let adminOpen   = false;
 
 /* ─── INIT ─── */
 window.addEventListener('DOMContentLoaded', () => {
@@ -357,7 +358,23 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('closedBanner').classList.add('show');
 });
 
-/* ─── DATE CHANGE ─── */
+/* ─── SECRET SHORTCUT: press 'O' three times to open admin ─── */
+let oKeyCount = 0, oKeyTimer = null;
+document.addEventListener('keydown', e => {
+  if (e.key === 'o' || e.key === 'O') {
+    oKeyCount++;
+    clearTimeout(oKeyTimer);
+    if (oKeyCount >= 3) { oKeyCount = 0; openAdmin(); return; }
+    oKeyTimer = setTimeout(() => { oKeyCount = 0; }, 800);
+  }
+});
+
+/* ─── UTILS ─── */
+function escHtml(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+
 function handleDateChange() {
   const d = new Date(document.getElementById('bookDate').value + 'T12:00:00');
   if (d.getDay() === 1) {
@@ -388,7 +405,10 @@ function renderSlots() {
       if (period === 'AM' && hh === 12) hh = 0;
       isPast = (hh * 60 + mm) <= (now.getHours() * 60 + now.getMinutes());
     }
-    if (booked) return `<button class="slot-btn booked">${t}<span class="slot-status">Full</span></button>`;
+    if (booked) {
+      if (adminOpen) return `<button class="slot-btn booked admin-unbook" onclick="unBookSlot('${date}','${t}')" title="Click to unbook">${t}<span class="slot-status">Full — Unbook?</span></button>`;
+      return `<button class="slot-btn booked">${t}<span class="slot-status">Full</span></button>`;
+    }
     if (isPast)  return `<button class="slot-btn past">${t}</button>`;
     return `<button class="slot-btn" onclick="selectSlot(this,'${t}')">${t}</button>`;
   }).join('');
@@ -406,7 +426,7 @@ function selectSlot(btn, time) {
 function selectService(card) {
   document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
   card.classList.add('selected');
-  sel_service = { name: card.dataset.service, price: card.dataset.price, duration: card.dataset.duration };
+  sel_service = { name: card.dataset.service, duration: card.dataset.duration };
   const dd = document.getElementById('serviceSelect');
   for (let o of dd.options) { if (o.value.startsWith(card.dataset.service + '|')) { dd.value = o.value; break; } }
   updateSummary();
@@ -414,8 +434,8 @@ function selectService(card) {
 function syncServiceFromSelect() {
   const v = document.getElementById('serviceSelect').value;
   if (!v) { sel_service = null; updateSummary(); return; }
-  const [name, price, duration] = v.split('|');
-  sel_service = { name, price, duration };
+  const [name, duration] = v.split('|');
+  sel_service = { name, duration };
   document.querySelectorAll('.service-card').forEach(c => c.classList.toggle('selected', c.dataset.service === name));
   updateSummary();
 }
@@ -431,7 +451,6 @@ function updateSummary() {
   if (sel_service) {
     document.getElementById('sumService').textContent  = sel_service.name;
     document.getElementById('sumDuration').textContent = sel_service.duration;
-    document.getElementById('sumPrice').textContent    = sel_service.price;
   }
   document.getElementById('sumName').textContent  = name  || '—';
   document.getElementById('sumPhone').textContent = phone || '—';
@@ -461,7 +480,7 @@ function confirmBooking() {
   const booking = {
     id: Date.now().toString(),
     name, phone, date, time: sel_time,
-    service: sel_service.name, price: sel_service.price, duration: sel_service.duration,
+    service: sel_service.name, duration: sel_service.duration,
     notes, bookedAt: new Date().toISOString()
   };
 
@@ -469,13 +488,12 @@ function confirmBooking() {
   renderSlots();
 
   document.getElementById('successDetail').innerHTML = `
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>Phone:</strong> ${phone}</p>
-    <p><strong>Service:</strong> ${sel_service.name} (${sel_service.duration})</p>
+    <p><strong>Name:</strong> ${escHtml(name)}</p>
+    <p><strong>Phone:</strong> ${escHtml(phone)}</p>
+    <p><strong>Service:</strong> ${escHtml(sel_service.name)} (${escHtml(sel_service.duration)})</p>
     <p><strong>Date:</strong> ${fmtDate(date)}</p>
-    <p><strong>Time:</strong> ${sel_time}</p>
-    <p><strong>Price:</strong> ${sel_service.price}</p>
-    ${notes ? `<p><strong>Notes:</strong> ${notes}</p>` : ''}
+    <p><strong>Time:</strong> ${escHtml(sel_time)}</p>
+    ${notes ? `<p><strong>Notes:</strong> ${escHtml(notes)}</p>` : ''}
   `;
   document.getElementById('successOverlay').classList.add('show');
   notifyOwner(booking);
@@ -483,6 +501,7 @@ function confirmBooking() {
 
 /* ─── WHATSAPP OWNER NOTIFICATION ─── */
 function notifyOwner(b) {
+  // No redirect for customer – owner link is stored for admin access only
   const msg =
 `✂️ *New Booking – Mr. Darsh Family Salon*
 
@@ -490,13 +509,17 @@ function notifyOwner(b) {
 📞 *Phone:* +91 ${b.phone}
 💇 *Service:* ${b.service} (${b.duration})
 📅 *Date:* ${fmtDate(b.date)}
-⏰ *Time Slot:* ${b.time}
-💰 *Price:* ${b.price}${b.notes ? `\n📝 *Customer Notes:* ${b.notes}` : ''}
+⏰ *Time Slot:* ${b.time}${b.notes ? `\n📝 *Customer Notes:* ${b.notes}` : ''}
 
 _Booking ID: #${b.id.slice(-6)}_
 _Booked at: ${new Date().toLocaleString('en-IN')}_`;
 
-  window.open(`https://wa.me/${OWNER_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+  // Store pending notification for owner to send from admin panel
+  try {
+    const pending = JSON.parse(localStorage.getItem('darsh_pending_notify') || '[]');
+    pending.push({ id: b.id, msg, phone: OWNER_PHONE });
+    localStorage.setItem('darsh_pending_notify', JSON.stringify(pending));
+  } catch(e) {}
 }
 
 function closeSuccess() {
@@ -511,8 +534,19 @@ function closeSuccess() {
 }
 
 /* ─── ADMIN ─── */
-function openAdmin()  { renderAdmin(); document.getElementById('adminOverlay').classList.add('show'); }
-function closeAdmin() { document.getElementById('adminOverlay').classList.remove('show'); }
+function openAdmin()  {
+  adminOpen = true;
+  renderAdmin();
+  document.getElementById('adminOverlay').classList.add('show');
+  const date = document.getElementById('bookDate').value;
+  if (date) renderSlots();
+}
+function closeAdmin() {
+  adminOpen = false;
+  document.getElementById('adminOverlay').classList.remove('show');
+  const date = document.getElementById('bookDate').value;
+  if (date) renderSlots();
+}
 
 function renderAdmin() {
   const all     = getBookings();
@@ -526,25 +560,50 @@ function renderAdmin() {
   ).sort((a,b) => a.date === b.date ? a.time.localeCompare(b.time) : a.date.localeCompare(b.date));
 
   const todayCount = all.filter(b => b.date === today).length;
-  const revenue    = all.reduce((s,b) => s + parseInt(b.price.replace(/[^0-9]/g,'')||0), 0);
   document.getElementById('statTotal').textContent   = all.length;
   document.getElementById('statToday').textContent   = todayCount;
-  document.getElementById('statRevenue').textContent = '₹' + revenue.toLocaleString('en-IN');
+
+  // Show pending WhatsApp notifications count
+  const pending = JSON.parse(localStorage.getItem('darsh_pending_notify') || '[]');
+  const notifyBadge = pending.length > 0 ? ` (${pending.length} pending)` : '';
+  const notifyBtn = pending.length > 0
+    ? `<button class="admin-close" onclick="sendPendingNotifications()" style="border-color:rgba(37,211,102,0.5);color:#25D366">💬 Send Next WhatsApp Notification${notifyBadge}</button>`
+    : '';
+  const notifyEl = document.getElementById('adminNotifyRow');
+  if (notifyEl) notifyEl.innerHTML = notifyBtn;
 
   const list = document.getElementById('bookingsList');
   if (!filtered.length) { list.innerHTML = '<div class="no-bookings">No bookings found.</div>'; return; }
 
   list.innerHTML = filtered.map(b => `
     <div class="booking-item">
-      <div><div class="bi-name">${b.name}</div><div class="bi-service">${b.service} · ${b.price}</div></div>
-      <div class="bi-time">📅 ${fmtDate(b.date)}<br>⏰ ${b.time} · ${b.duration}${b.notes?`<br>📝 ${b.notes}`:''}</div>
+      <div><div class="bi-name">${escHtml(b.name)}</div><div class="bi-service">${escHtml(b.service)}</div></div>
+      <div class="bi-time">📅 ${fmtDate(b.date)}<br>⏰ ${escHtml(b.time)} · ${escHtml(b.duration)}${b.notes?`<br>📝 ${escHtml(b.notes)}`:''}</div>
       <div class="bi-phone">
-        <a href="tel:+91${b.phone}">📞 ${b.phone}</a>
-        <a href="https://wa.me/91${b.phone}?text=${encodeURIComponent(`Hi ${b.name}, this is Mr. Darsh Family Salon. Your appointment for ${b.service} on ${fmtDate(b.date)} at ${b.time} is confirmed. See you soon!`)}" target="_blank" style="color:#25D366;margin-top:4px">💬 WhatsApp</a>
+        <a href="tel:+91${escHtml(b.phone)}">📞 ${escHtml(b.phone)}</a>
+        <a href="https://wa.me/91${encodeURIComponent(b.phone)}?text=${encodeURIComponent(`Hi ${b.name}, this is Mr. Darsh Family Salon. Your appointment for ${b.service} on ${fmtDate(b.date)} at ${b.time} is confirmed. See you soon!`)}" target="_blank" style="color:#25D366;margin-top:4px">💬 WhatsApp</a>
       </div>
-      <button class="del-btn" onclick="deleteBooking('${b.id}')">✕ Cancel</button>
+      <button class="del-btn" onclick="deleteBooking('${escHtml(b.id)}')">✕ Cancel</button>
     </div>
   `).join('');
+}
+
+function unBookSlot(date, time) {
+  const booking = getBookings().find(b => b.date === date && b.time === time);
+  const customerInfo = booking ? ` (${booking.name})` : '';
+  if (!confirm(`Unbook slot ${time} on ${fmtDate(date)}${customerInfo}? This will free the slot for new bookings.`)) return;
+  saveBookings(getBookings().filter(b => !(b.date === date && b.time === time)));
+  renderSlots();
+  renderAdmin();
+}
+
+function sendPendingNotifications() {
+  const pending = JSON.parse(localStorage.getItem('darsh_pending_notify') || '[]');
+  if (!pending.length) { alert('No pending notifications.'); return; }
+  const first = pending.shift();
+  localStorage.setItem('darsh_pending_notify', JSON.stringify(pending));
+  window.open(`https://wa.me/${first.phone}?text=${encodeURIComponent(first.msg)}`, '_blank');
+  renderAdmin();
 }
 
 function deleteBooking(id) {
