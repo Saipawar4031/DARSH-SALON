@@ -65,7 +65,6 @@
   .service-icon { font-size: 2rem; margin-bottom: 1rem; }
   .service-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--warm-white); margin-bottom: 0.4rem; }
   .service-duration { font-size: 0.65rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.6rem; }
-  .service-price { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold-light); }
   .service-desc { font-size: 0.72rem; color: var(--muted); line-height: 1.7; margin-top: 0.6rem; }
   #booking { background: var(--dark2); border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 6rem 2rem; }
   .booking-inner { max-width: 800px; margin: 0 auto; }
@@ -111,38 +110,12 @@
   .footer-addr a { color: var(--gold); text-decoration: none; }
   .footer-divider { width: 60px; height: 1px; background: var(--gold-dim); margin: 1.5rem auto; }
   .footer-copy { font-size: 0.65rem; color: #3a3020; letter-spacing: 0.15em; }
-  .admin-fab { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200; background: var(--dark3); border: 1px solid var(--gold-dim); color: var(--muted); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.65rem 1.3rem; cursor: pointer; transition: all 0.25s; font-family: 'Montserrat', sans-serif; }
-  .admin-fab:hover { border-color: var(--gold); color: var(--gold); }
-  .admin-overlay { display: none; position: fixed; inset: 0; background: rgba(10,8,6,0.99); z-index: 600; overflow-y: auto; padding: 2rem; }
-  .admin-overlay.show { display: block; }
-  .admin-box { max-width: 900px; margin: 0 auto; }
-  .admin-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--gold-dim); padding-bottom: 1rem; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
-  .admin-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold); }
-  .admin-close { background: none; border: 1px solid var(--gold-dim); color: var(--muted); padding: 0.4rem 1rem; cursor: pointer; font-size: 0.7rem; letter-spacing: 0.15em; transition: all 0.2s; font-family: 'Montserrat', sans-serif; }
-  .admin-close:hover { border-color: var(--gold); color: var(--gold); }
-  .admin-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 2rem; }
-  .stat-card { background: var(--dark2); border: 1px solid var(--gold-dim); padding: 1.5rem; text-align: center; }
-  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); }
-  .stat-lbl { font-size: 0.62rem; letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase; margin-top: 0.3rem; }
-  .admin-filter { display: flex; gap: 0.8rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-  .admin-filter input, .admin-filter select { flex: 1; min-width: 140px; }
-  .bookings-list { display: flex; flex-direction: column; gap: 0.8rem; }
-  .booking-item { background: var(--dark2); border: 1px solid rgba(201,168,76,0.15); padding: 1.2rem 1.5rem; display: grid; grid-template-columns: 1.4fr 1.8fr 1fr auto; gap: 1rem; align-items: center; }
-  .bi-name { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--warm-white); }
-  .bi-service { font-size: 0.72rem; color: var(--gold); letter-spacing: 0.06em; margin-top: 0.2rem; }
-  .bi-time { font-size: 0.73rem; color: var(--muted); line-height: 1.7; }
-  .bi-phone a { color: var(--gold); text-decoration: none; font-size: 0.74rem; display: block; }
-  .del-btn { background: none; border: 1px solid rgba(192,57,43,0.4); color: rgba(192,57,43,0.7); padding: 0.35rem 0.7rem; cursor: pointer; font-size: 0.65rem; font-family: 'Montserrat', sans-serif; transition: all 0.2s; white-space: nowrap; }
-  .del-btn:hover { border-color: var(--red); color: var(--red); }
-  .no-bookings { text-align: center; padding: 3rem; color: var(--muted); font-size: 0.8rem; }
   .section-sep { width: 100%; height: 1px; background: rgba(201,168,76,0.1); margin: 1rem 0; }
   @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
   @keyframes popIn { from { transform:scale(0); } to { transform:scale(1); } }
   @media (max-width:640px) {
     nav { padding:1rem 1.5rem; } .nav-links { display:none; }
     .form-grid { grid-template-columns:1fr; }
-    .booking-item { grid-template-columns:1fr 1fr; }
-    .admin-stats { grid-template-columns:1fr 1fr; }
     .hero-hours { flex-direction:column; gap:0.3rem; text-align:center; }
   }
 </style>
@@ -164,7 +137,7 @@
   <div class="hero-bg"></div>
   <div class="hero-deco">✂</div>
   <div class="hero-content">
-    <div class="hero-badge">Nashik · Family Salon</div>
+    <div class="hero-badge">Sinnar · Family Salon</div>
     <h1 class="hero-title">Mr. <em>Darsh</em><br>Family Salon</h1>
     <p class="hero-sub">Style · Care · Elegance</p>
     <div class="hero-divider"></div>
@@ -181,34 +154,34 @@
   <p class="section-label">✦ What We Offer ✦</p>
   <h2 class="section-title">Choose Your Treatment</h2>
   <div class="services-grid">
-    <div class="service-card" data-service="Haircut" data-price="₹200" data-duration="30 min" onclick="selectService(this)">
+    <div class="service-card" data-service="Haircut" data-duration="30 min" onclick="selectService(this)">
       <div class="service-icon">✂️</div><div class="service-name">Haircut</div>
-      <div class="service-duration">30 min</div><div class="service-price">₹200</div>
+      <div class="service-duration">30 min</div>
       <div class="service-desc">Classic precision cut tailored to your face shape and style.</div>
     </div>
-    <div class="service-card" data-service="Hair Colour" data-price="₹600" data-duration="60 min" onclick="selectService(this)">
+    <div class="service-card" data-service="Hair Colour" data-duration="60 min" onclick="selectService(this)">
       <div class="service-icon">🎨</div><div class="service-name">Hair Colour</div>
-      <div class="service-duration">60 min</div><div class="service-price">₹600</div>
+      <div class="service-duration">60 min</div>
       <div class="service-desc">Full colour, highlights, or balayage with premium products.</div>
     </div>
-    <div class="service-card" data-service="Hair Spa" data-price="₹500" data-duration="45 min" onclick="selectService(this)">
+    <div class="service-card" data-service="Hair Spa" data-duration="45 min" onclick="selectService(this)">
       <div class="service-icon">💆</div><div class="service-name">Hair Spa</div>
-      <div class="service-duration">45 min</div><div class="service-price">₹500</div>
+      <div class="service-duration">45 min</div>
       <div class="service-desc">Deep conditioning treatment for strength, shine & nourishment.</div>
     </div>
-    <div class="service-card" data-service="Smoothening" data-price="₹1500" data-duration="90 min" onclick="selectService(this)">
+    <div class="service-card" data-service="Smoothening" data-duration="90 min" onclick="selectService(this)">
       <div class="service-icon">🌊</div><div class="service-name">Smoothening</div>
-      <div class="service-duration">90 min</div><div class="service-price">₹1500</div>
+      <div class="service-duration">90 min</div>
       <div class="service-desc">Frizz-free, silky smooth treatment that lasts for months.</div>
     </div>
-    <div class="service-card" data-service="Keratin Treatment" data-price="₹2000" data-duration="120 min" onclick="selectService(this)">
+    <div class="service-card" data-service="Keratin Treatment" data-duration="120 min" onclick="selectService(this)">
       <div class="service-icon">✨</div><div class="service-name">Keratin</div>
-      <div class="service-duration">120 min</div><div class="service-price">₹2000</div>
+      <div class="service-duration">120 min</div>
       <div class="service-desc">Restore and strengthen your hair with a professional keratin infusion.</div>
     </div>
-    <div class="service-card" data-service="Shave & Trim" data-price="₹150" data-duration="20 min" onclick="selectService(this)">
+    <div class="service-card" data-service="Shave & Trim" data-duration="20 min" onclick="selectService(this)">
       <div class="service-icon">🪒</div><div class="service-name">Shave & Trim</div>
-      <div class="service-duration">20 min</div><div class="service-price">₹150</div>
+      <div class="service-duration">20 min</div>
       <div class="service-desc">Classic blade shave or beard trim, sharp and precise finish.</div>
     </div>
   </div>
@@ -231,12 +204,12 @@
         <label>Service *</label>
         <select id="serviceSelect" onchange="syncServiceFromSelect()">
           <option value="">— Select service —</option>
-          <option value="Haircut|₹200|30 min">Haircut — ₹200</option>
-          <option value="Hair Colour|₹600|60 min">Hair Colour — ₹600</option>
-          <option value="Hair Spa|₹500|45 min">Hair Spa — ₹500</option>
-          <option value="Smoothening|₹1500|90 min">Smoothening — ₹1500</option>
-          <option value="Keratin Treatment|₹2000|120 min">Keratin — ₹2000</option>
-          <option value="Shave & Trim|₹150|20 min">Shave & Trim — ₹150</option>
+          <option value="Haircut|30 min">Haircut</option>
+          <option value="Hair Colour|60 min">Hair Colour</option>
+          <option value="Hair Spa|45 min">Hair Spa</option>
+          <option value="Smoothening|90 min">Smoothening</option>
+          <option value="Keratin Treatment|120 min">Keratin</option>
+          <option value="Shave & Trim|20 min">Shave & Trim</option>
         </select>
       </div>
       <div class="form-group">
@@ -260,7 +233,6 @@
       <div class="summary-row"><span>Date</span><span id="sumDate">—</span></div>
       <div class="summary-row"><span>Time</span><span id="sumTime">—</span></div>
       <div class="summary-row"><span>Duration</span><span id="sumDuration">—</span></div>
-      <div class="summary-row"><span>Price</span><span id="sumPrice">—</span></div>
     </div>
     <button class="submit-btn" id="submitBtn" onclick="confirmBooking()" disabled>Confirm Reservation</button>
   </div>
@@ -280,9 +252,6 @@
   <p class="footer-copy">© 2026 Mr. Darsh Family Salon · All rights reserved</p>
 </footer>
 
-<!-- OWNER PANEL BUTTON -->
-<button class="admin-fab" onclick="openAdmin()">⚙ Owner Panel</button>
-
 <!-- SUCCESS OVERLAY -->
 <div class="success-overlay" id="successOverlay">
   <div class="success-icon">✅</div>
@@ -292,28 +261,6 @@
   <p class="wa-note">📲 Owner notified via <span>WhatsApp ✓</span></p>
   <br>
   <button class="btn-book" onclick="closeSuccess()">Book Another Slot</button>
-</div>
-
-<!-- ADMIN OVERLAY -->
-<div class="admin-overlay" id="adminOverlay">
-  <div class="admin-box">
-    <div class="admin-header">
-      <div class="admin-title">✂ Owner Dashboard</div>
-      <button class="admin-close" onclick="closeAdmin()">✕ Close</button>
-    </div>
-    <div class="admin-stats">
-      <div class="stat-card"><div class="stat-num" id="statTotal">0</div><div class="stat-lbl">Total Bookings</div></div>
-      <div class="stat-card"><div class="stat-num" id="statToday">0</div><div class="stat-lbl">Today's Bookings</div></div>
-      <div class="stat-card"><div class="stat-num" id="statRevenue">₹0</div><div class="stat-lbl">Expected Revenue</div></div>
-    </div>
-    <div class="admin-filter">
-      <input type="text" id="adminSearch" placeholder="Search name, phone, service…" oninput="renderAdmin()"/>
-      <input type="date" id="adminDateFilter" onchange="renderAdmin()"/>
-      <button class="admin-close" onclick="clearAdminFilter()">Clear</button>
-      <button class="admin-close" onclick="clearAllBookings()" style="border-color:rgba(192,57,43,0.5);color:rgba(192,57,43,0.7)">🗑 Clear All</button>
-    </div>
-    <div class="bookings-list" id="bookingsList"></div>
-  </div>
 </div>
 
 <script>
@@ -406,7 +353,7 @@ function selectSlot(btn, time) {
 function selectService(card) {
   document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
   card.classList.add('selected');
-  sel_service = { name: card.dataset.service, price: card.dataset.price, duration: card.dataset.duration };
+  sel_service = { name: card.dataset.service, duration: card.dataset.duration };
   const dd = document.getElementById('serviceSelect');
   for (let o of dd.options) { if (o.value.startsWith(card.dataset.service + '|')) { dd.value = o.value; break; } }
   updateSummary();
@@ -414,8 +361,8 @@ function selectService(card) {
 function syncServiceFromSelect() {
   const v = document.getElementById('serviceSelect').value;
   if (!v) { sel_service = null; updateSummary(); return; }
-  const [name, price, duration] = v.split('|');
-  sel_service = { name, price, duration };
+  const [name, duration] = v.split('|');
+  sel_service = { name, duration };
   document.querySelectorAll('.service-card').forEach(c => c.classList.toggle('selected', c.dataset.service === name));
   updateSummary();
 }
@@ -431,7 +378,6 @@ function updateSummary() {
   if (sel_service) {
     document.getElementById('sumService').textContent  = sel_service.name;
     document.getElementById('sumDuration').textContent = sel_service.duration;
-    document.getElementById('sumPrice').textContent    = sel_service.price;
   }
   document.getElementById('sumName').textContent  = name  || '—';
   document.getElementById('sumPhone').textContent = phone || '—';
@@ -461,7 +407,7 @@ function confirmBooking() {
   const booking = {
     id: Date.now().toString(),
     name, phone, date, time: sel_time,
-    service: sel_service.name, price: sel_service.price, duration: sel_service.duration,
+    service: sel_service.name, duration: sel_service.duration,
     notes, bookedAt: new Date().toISOString()
   };
 
@@ -474,7 +420,6 @@ function confirmBooking() {
     <p><strong>Service:</strong> ${sel_service.name} (${sel_service.duration})</p>
     <p><strong>Date:</strong> ${fmtDate(date)}</p>
     <p><strong>Time:</strong> ${sel_time}</p>
-    <p><strong>Price:</strong> ${sel_service.price}</p>
     ${notes ? `<p><strong>Notes:</strong> ${notes}</p>` : ''}
   `;
   document.getElementById('successOverlay').classList.add('show');
@@ -491,7 +436,7 @@ function notifyOwner(b) {
 💇 *Service:* ${b.service} (${b.duration})
 📅 *Date:* ${fmtDate(b.date)}
 ⏰ *Time Slot:* ${b.time}
-💰 *Price:* ${b.price}${b.notes ? `\n📝 *Customer Notes:* ${b.notes}` : ''}
+${b.notes ? `📝 *Customer Notes:* ${b.notes}\n` : ''}
 
 _Booking ID: #${b.id.slice(-6)}_
 _Booked at: ${new Date().toLocaleString('en-IN')}_`;
@@ -508,63 +453,6 @@ function closeSuccess() {
   document.getElementById('slotsGrid').innerHTML = '<p style="color:var(--muted);font-size:0.75rem;grid-column:1/-1">Please select a date to see available slots.</p>';
   document.getElementById('bookingSummary').classList.remove('visible');
   document.getElementById('submitBtn').disabled = true;
-}
-
-/* ─── ADMIN ─── */
-function openAdmin()  { renderAdmin(); document.getElementById('adminOverlay').classList.add('show'); }
-function closeAdmin() { document.getElementById('adminOverlay').classList.remove('show'); }
-
-function renderAdmin() {
-  const all     = getBookings();
-  const search  = document.getElementById('adminSearch').value.toLowerCase();
-  const dFilter = document.getElementById('adminDateFilter').value;
-  const today   = new Date().toISOString().split('T')[0];
-
-  const filtered = all.filter(b =>
-    (!search  || b.name.toLowerCase().includes(search) || b.phone.includes(search) || b.service.toLowerCase().includes(search)) &&
-    (!dFilter || b.date === dFilter)
-  ).sort((a,b) => a.date === b.date ? a.time.localeCompare(b.time) : a.date.localeCompare(b.date));
-
-  const todayCount = all.filter(b => b.date === today).length;
-  const revenue    = all.reduce((s,b) => s + parseInt(b.price.replace(/[^0-9]/g,'')||0), 0);
-  document.getElementById('statTotal').textContent   = all.length;
-  document.getElementById('statToday').textContent   = todayCount;
-  document.getElementById('statRevenue').textContent = '₹' + revenue.toLocaleString('en-IN');
-
-  const list = document.getElementById('bookingsList');
-  if (!filtered.length) { list.innerHTML = '<div class="no-bookings">No bookings found.</div>'; return; }
-
-  list.innerHTML = filtered.map(b => `
-    <div class="booking-item">
-      <div><div class="bi-name">${b.name}</div><div class="bi-service">${b.service} · ${b.price}</div></div>
-      <div class="bi-time">📅 ${fmtDate(b.date)}<br>⏰ ${b.time} · ${b.duration}${b.notes?`<br>📝 ${b.notes}`:''}</div>
-      <div class="bi-phone">
-        <a href="tel:+91${b.phone}">📞 ${b.phone}</a>
-        <a href="https://wa.me/91${b.phone}?text=${encodeURIComponent(`Hi ${b.name}, this is Mr. Darsh Family Salon. Your appointment for ${b.service} on ${fmtDate(b.date)} at ${b.time} is confirmed. See you soon!`)}" target="_blank" style="color:#25D366;margin-top:4px">💬 WhatsApp</a>
-      </div>
-      <button class="del-btn" onclick="deleteBooking('${b.id}')">✕ Cancel</button>
-    </div>
-  `).join('');
-}
-
-function deleteBooking(id) {
-  if (!confirm('Cancel and remove this booking?')) return;
-  saveBookings(getBookings().filter(b => b.id !== id));
-  renderAdmin();
-  const date = document.getElementById('bookDate').value;
-  if (date) renderSlots();
-}
-
-function clearAllBookings() {
-  if (!confirm('DELETE ALL bookings? This cannot be undone.')) return;
-  saveBookings([]);
-  renderAdmin();
-}
-
-function clearAdminFilter() {
-  document.getElementById('adminSearch').value = '';
-  document.getElementById('adminDateFilter').value = '';
-  renderAdmin();
 }
 </script>
 </body>
